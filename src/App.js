@@ -22,9 +22,9 @@ function App() {
           </Route>
           <Route path="/host">
             <Route element={<HostLayout />}>
-            <Route index element={<Dashboard />} />
+              <Route index element={<Dashboard />} />
               <Route path="income" element={<Income />} />
-              <Route path="reviews" element={<Reviews/>} />
+              <Route path="reviews" element={<Reviews />} />
             </Route>
           </Route>
         </Route>

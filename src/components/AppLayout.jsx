@@ -1,16 +1,22 @@
 import { Link, Outlet } from "react-router-dom";
+import HeaderLink from "./HeaderLink";
 
 export default function AppLayout() {
   const links = [
     {
+      to: "/host",
+      text: "Host",
+      id: 1,
+    },
+    {
       to: "/about",
       text: "About",
-      id: 1,
+      id: 2,
     },
     {
       to: "/vans",
       text: "Vans",
-      id: 2,
+      id: 3,
     },
   ];
   return (
@@ -23,15 +29,9 @@ export default function AppLayout() {
           #VANLIFE
         </Link>
         <div className="flex gap-5">
-          {links.map((el) => (
-            <Link
-              to={el.to}
-              key={el.id}
-              className="text-[#4D4D4D] font-semibold leading-[22.9px]"
-            >
-              {el.text}
-            </Link>
-          ))}
+          {links.map((element) => {
+            return <HeaderLink key={element.id} {...element} />
+          })}
         </div>
       </header>
       <div className="flex-1 flex ">

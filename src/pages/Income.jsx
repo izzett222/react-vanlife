@@ -20,7 +20,7 @@ export default function Income() {
   ];
   return (
     <div className="w-full bg-[#FFF7ED] px-[26px]">
-      <h2 className="font-bold text-4xl text-dark mt-14 mb-11">Income</h2>
+      <h2 className="font-bold text-4xl text-dark pt-14 mb-11">Income</h2>
       <p className="text-[#4d4d4d]">
         Last <span className="font-bold underline">30 days</span>
       </p>
@@ -39,7 +39,7 @@ export default function Income() {
             Last <span className="font-bold underline">30 days</span>
           </p>
         </div>
-        <div className="mb-8">
+        <div className="pb-8">
           {transactions.map((transaction) => {
             return (
               <div key={transaction.id} className="flex justify-between items-center py-9 px-7">

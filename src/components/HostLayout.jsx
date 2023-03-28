@@ -14,9 +14,14 @@ export default function HostLayout() {
       id: 2,
     },
     {
+      to: "vans",
+      text: "Vans",
+      id: 3,
+    },
+    {
       to: "reviews",
       text: "Reviews",
-      id: 3,
+      id: 4,
     },
   ];
   return (

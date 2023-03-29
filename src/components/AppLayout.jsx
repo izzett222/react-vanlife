@@ -23,7 +23,7 @@ export default function AppLayout() {
     <div className="flex flex-col min-h-[100vh] font-sans">
       <header className="bg-[#FFF7ED] h-24 items-center w-full flex justify-between px-6">
         <Link
-          to="/"
+          to="."
           className="font-sans font-black text-[25.35px] leading-[40.3px]"
         >
           #VANLIFE

@@ -13,7 +13,7 @@ export default function VanDetails() {
         {van.type}
       </p>
       
-      <p className="text-sm` mb-3"><span className="font-bold">Description: </span>{van.description}</p>
+      <p className="text-sm mb-3"><span className="font-bold">Description: </span>{van.description}</p>
       <p><span className="font-bold">Visibility: </span>Public</p>
     </div>
   );

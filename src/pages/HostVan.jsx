@@ -13,10 +13,10 @@ export default function HostVan() {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`/api/vans/${id}`)
+    fetch(`/api/host/vans/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setData(data.vans);
+        setData(data.vans[0]);
       });
   }, [id]);
   return (
@@ -52,8 +52,10 @@ export default function HostVan() {
                 </div>
               </div>
             </div>
-        <div className="mt-6 mb-6">
-            <NavLink className={({ isActive }) => `${isActive && "underline font-medium"}`} to={`/host/vans/${id}`}>Details</NavLink>
+        <div className="mt-6 mb-6 flex gap-6">
+            <NavLink className={({ isActive }) => `${isActive && "underline font-medium"}`} end to=".">Details</NavLink>
+            <NavLink className={({ isActive }) => `${isActive && "underline font-medium"}`} end to="pricing">Pricing</NavLink>
+            <NavLink className={({ isActive }) => `${isActive && "underline font-medium"}`} end to="photos">Photos</NavLink>
         </div>
         <div>
             <Outlet context={{van: data}}/>

@@ -5,6 +5,8 @@ import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import HostVan from './pages/HostVan';
+import HostVanPhotos from './pages/HostVanPhotos';
+import HostVanPricing from './pages/HostVanPricing';
 import HostVans from './pages/HostVans';
 import Income from './pages/Income';
 import Reviews from './pages/Reviews';
@@ -29,6 +31,8 @@ function App() {
               <Route path="vans" element={<HostVans />} />
               <Route path='vans/:id' element={<HostVan />}>
                 <Route index element={<VanDetails />} />
+                <Route path="pricing" element={<HostVanPricing />} />
+                <Route path="photos" element={<HostVanPhotos />} />
               </Route>
             </Route>
           </Route>

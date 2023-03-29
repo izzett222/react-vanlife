@@ -4,7 +4,7 @@ import HeaderLink from "./HeaderLink";
 export default function HostLayout() {
   const links = [
     {
-      to: "/host",
+      to: ".",
       text: "dashboard",
       id: 1,
     },

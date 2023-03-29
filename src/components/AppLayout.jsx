@@ -34,7 +34,7 @@ export default function AppLayout() {
           })}
         </div>
       </header>
-      <div className="flex-1 flex ">
+      <div className="flex-1 flex">
         <Outlet />
       </div>
       <footer className="bg-[#252525] w-full h-16 flex items-center justify-center">

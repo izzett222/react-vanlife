@@ -5,9 +5,9 @@ const typeColor = {
   rugged: "bg-[#115E59]",
   luxury: "bg-[#161616]",
 };
-export default function VanCard({ imageUrl, name, price, type, id }) {
+export default function VanCard({ imageUrl, name, price, type, id, query }) {
   return (
-    <Link to={`${id}`} className="block group">
+    <Link to={`${id}`} state={query && {query}} className="block group">
     <div className="aspect-square w-full">
        <img src={imageUrl} className="rounded-[5px] w-full h-full" alt="" /> 
     </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import arrow from "../../assets/arrow.svg";
 
 const typeColor = {
@@ -11,7 +11,7 @@ const typeColor = {
 export default function Van() {
   const { id } = useParams();
   const [data, setData] = useState(null);
-  const navigate = useNavigate();
+  const {state} = useLocation()
   useEffect(() => {
     fetch(`/api/vans/${id}`)
       .then((res) => res.json())
@@ -19,16 +19,18 @@ export default function Van() {
         setData(data.vans);
       });
   }, [id]);
+  const searchParams = new URLSearchParams(state?.query);
   return (
     data && (
       <div className="w-full px-[26px] pt-5 pb-20">
-        <button
-          onClick={() => navigate(-1)}
+        <Link
+          to={`..?${state?.query || ''}`}
+          relative="path"
           className="flex items-center gap-3"
         >
           <img src={arrow} alt="" />
-          <span className="underline">Back to all vans</span>
-        </button>
+          <span className="underline">Back to all {searchParams.get("type") || ""} vans</span>
+        </Link>
         <div>
           <div className="w-full aspect-square rounded-[10px] mt-10">
             <img

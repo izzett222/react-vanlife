@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLayout from './components/AppLayout';
 import About from './pages/About';
 import Home from './pages/Home';
-import Van from './pages/Van';
-import Vans from './pages/Vans';
+import Van from './pages/vans/Van';
+import Vans from './pages//vans/Vans';
 function App() {
   return (
     <BrowserRouter>

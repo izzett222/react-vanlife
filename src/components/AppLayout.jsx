@@ -23,18 +23,18 @@ export default function AppLayout() {
           #VANLIFE
         </Link>
         <div className="flex gap-5">
-          {links.map((el) => (
+          {links.map((link) => (
             <Link
-              to={el.to}
-              key={el.id}
+              to={link.to}
+              key={link.id}
               className="text-[#4D4D4D] font-semibold leading-[22.9px]"
             >
-              {el.text}
+              {link.text}
             </Link>
           ))}
         </div>
       </header>
-      <div className="flex-1 flex ">
+      <div className="flex-1 flex">
         <Outlet />
       </div>
       <footer className="bg-[#252525] w-full h-16 flex items-center justify-center">

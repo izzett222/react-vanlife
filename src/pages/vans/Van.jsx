@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import arrow from "../../assets/arrow.svg";
 
 const typeColor = {
@@ -11,6 +11,7 @@ const typeColor = {
 export default function Van() {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`/api/vans/${id}`)
       .then((res) => res.json())
@@ -21,10 +22,13 @@ export default function Van() {
   return (
     data && (
       <div className="w-full px-[26px] pt-5 pb-20">
-        <Link to="/vans" className="flex items-center gap-3">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-3"
+        >
           <img src={arrow} alt="" />
           <span className="underline">Back to all vans</span>
-        </Link>
+        </button>
         <div>
           <div className="w-full aspect-square rounded-[10px] mt-10">
             <img
@@ -48,8 +52,12 @@ export default function Van() {
               </span>
               <span className="text-sm text-[#161616]">/day</span>
             </div>
-            <p className="font-medium text-[#161616] mt-4 leading-[23.6px]">{data.description}</p>
-            <button className="w-full block text-center text-white py-3 rounded-[10px] mt-5 bg-[#FF8C38]">Rent this van</button>
+            <p className="font-medium text-[#161616] mt-4 leading-[23.6px]">
+              {data.description}
+            </p>
+            <button className="w-full block text-center text-white py-3 rounded-[10px] mt-5 bg-[#FF8C38]">
+              Rent this van
+            </button>
           </div>
         </div>
       </div>

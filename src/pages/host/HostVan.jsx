@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, NavLink, Outlet } from "react-router-dom";
-import arrow from "../assets/arrow.svg";
+import arrow from "../../assets/arrow.svg";
 
 const typeColor = {
   simple: "bg-[#E17654]",

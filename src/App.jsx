@@ -5,15 +5,15 @@ import Home from './pages/Home';
 import Van from './pages/vans/Van';
 import Vans from './pages/vans/Vans';
 import HostLayout from './components/HostLayout';
-import Dashboard from './pages/Dashboard';
-import HostVan from './pages/HostVan';
-import HostVanPhotos from './pages/HostVanPhotos';
-import HostVanPricing from './pages/HostVanPricing';
-import HostVans from './pages/HostVans';
-import Income from './pages/Income';
-import Reviews from './pages/Reviews';
+import Dashboard from './pages/host/Dashboard';
+import HostVan from './pages/host/HostVan';
+import HostVanPhotos from './pages/host/HostVanPhotos';
+import HostVanPricing from './pages/host/HostVanPricing';
+import HostVans from './pages/host/HostVans';
+import Income from './pages/host/Income';
+import Reviews from './pages/host/Reviews';
 
-import VanDetails from './pages/VanDetails';
+import VanDetails from './pages/host/VanDetails';
 
 function App() {
   return (
@@ -24,8 +24,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
           <Route path='vans/:id' element={<Van />} />
-          <Route path="host">
-            <Route element={<HostLayout />}>
+            <Route path="host" element={<HostLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="income" element={<Income />} />
               <Route path="reviews" element={<Reviews />} />
@@ -35,7 +34,6 @@ function App() {
                 <Route path="pricing" element={<HostVanPricing />} />
                 <Route path="photos" element={<HostVanPhotos />} />
               </Route>
-            </Route>
           </Route>
         </Route>
 

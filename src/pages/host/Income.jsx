@@ -1,4 +1,4 @@
-import chart from "../assets/income.svg";
+import chart from "../../assets/income.svg";
 
 export default function Income() {
   const transactions = [

@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import HeaderLink from "./HeaderLink";
+import profile from "../assets/profile.webp"
 
 export default function AppLayout() {
   const links = [
@@ -18,6 +19,11 @@ export default function AppLayout() {
       text: "Vans",
       id: 3,
     },
+    {
+      to: "login",
+      text: <img src={profile} className="w-[18px] h-[18px]" alt="" />,
+      id: 4,
+    },
   ];
   return (
     <div className="flex flex-col min-h-[100vh] font-sans">
@@ -28,7 +34,7 @@ export default function AppLayout() {
         >
           #VANLIFE
         </Link>
-        <div className="flex gap-5">
+        <div className="flex gap-5 items-center">
           {links.map((element) => {
             return <HeaderLink key={element.id} {...element} />
           })}

@@ -1,57 +1,46 @@
+
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "firebase/firestore/lite"
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCJxLRwQeTqgLZ0xXq0rvTSP-FC-lYgslo",
+  authDomain: "vanlife-4f1f0.firebaseapp.com",
+  projectId: "vanlife-4f1f0",
+  storageBucket: "vanlife-4f1f0.appspot.com",
+  messagingSenderId: "1032359331375",
+  appId: "1:1032359331375:web:00c996dd5dae8b686a68da"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app)
+const vansCollection = collection(db, 'vans')
+
+
+
 export async function getVans() {
-    const res = await fetch("/api/vans")
-    if (!res.ok) {
-         // eslint-disable-next-line no-throw-literal
-         throw {
-            message: "Failed to fetch vans",
-            statusText: res.statusText,
-            status: res.status,
-        }
-    }
-    const data = await res.json()
-    return data.vans
+    const vansSnapshot = await getDocs(vansCollection)
+    const vansArray = vansSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+    return vansArray
 }
 
 export async function getVan(id) {
-    const res = await fetch(`/api/vans/${id}`)
-    if (!res.ok) {
-         // eslint-disable-next-line no-throw-literal
-         throw {
-            message: "Van not found",
-            statusText: res.statusText,
-            status: res.status,
-        }
-    }
-    const data = await res.json()
-    return data.vans
+    const docRef = doc(db, 'vans', id)
+    const vanSnapshot = await getDoc(docRef)
+    return { ...vanSnapshot.data(), id: vanSnapshot.id}
 }
 
 export async function getHostVans() {
-    const res = await fetch("/api/host/vans")
-    if (!res.ok) {
-         // eslint-disable-next-line no-throw-literal
-         throw {
-            message: "Failed to fetch host vans",
-            statusText: res.statusText,
-            status: res.status,
-        }
-    }
-    const data = await res.json()
-    return data.vans
+    const hostQuery = query(vansCollection, where("hostId", '==', "9m852RZBS35a1kfKwFLV"))
+    const vansSnapshot = await getDocs(hostQuery)
+    const vansArray = vansSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+    return vansArray
 }
 
 export async function getHostVan(id) {
-    const res = await fetch(`/api/vans/host/${id}`)
-    if (!res.ok) {
-         // eslint-disable-next-line no-throw-literal
-         throw {
-            message: "Host van not found",
-            statusText: res.statusText,
-            status: res.status,
-        }
-    }
-    const data = await res.json()
-    return data.vans
+    const docRef = doc(db, 'vans', id)
+    const vanSnapshot = await getDoc(docRef)
+    return { ...vanSnapshot.data(), id: vanSnapshot.id}
 }
 
 export async function loginUser(creds) {
@@ -71,4 +60,3 @@ export async function loginUser(creds) {
 
     return data
 }
-

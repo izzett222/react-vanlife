@@ -19,28 +19,21 @@ import HostVanPricing, {
 } from "./pages/host/HostVanPricing";
 import HostVans, { loader as hostVansLoader } from "./pages/host/HostVans";
 import Income, { loader as incomeLoader } from "./pages/host/Income";
-import Login, {
-  action as loginAction,
-  loader as loginLoader,
-} from "./pages/Login";
+import Login, { action as loginAction, loader as loginLoader } from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Reviews, { loader as reviewLoader } from "./pages/host/Reviews";
 import Van, { loader as vanLoader } from "./pages/vans/Van";
-import VanDetails, {
-  loader as hostVanDetailsLoader,
-} from "./pages/host/VanDetails";
+import VanDetails, { loader as hostVanDetailsLoader } from "./pages/host/VanDetails";
 import Vans, { loader as vansLoader } from "./pages/vans/Vans";
 
 function App() {
   const routes = createRoutesFromElements(
     <Route path="/" element={<AppLayout />}>
-      <Route index element={<Home />} />
       <Route
-        path="login"
-        loader={loginLoader}
-        action={loginAction}
-        element={<Login />}
+        index
+        element={<Home />}
       />
+      <Route path="login" loader={loginLoader} action={loginAction} element={<Login />} />
       <Route path="about" element={<About />} />
       <Route
         path="vans"
@@ -54,34 +47,41 @@ function App() {
         errorElement={<Error />}
         element={<Van />}
       />
-
-      <Route path="host" element={<HostLayout />}>
-        <Route index loader={dashboardLoader} element={<Dashboard />} />
-        <Route path="income" loader={incomeLoader} element={<Income />} />
-        <Route path="reviews" loader={reviewLoader} element={<Reviews />} />
-        <Route
-          path="vans"
-          loader={hostVansLoader}
-          errorElement={<Error />}
-          element={<HostVans />}
-        />
-        <Route
-          path="vans/:id"
-          loader={hostVanLoader}
-          errorElement={<Error />}
-          element={<HostVan />}
-        >
-          <Route index loader={hostVanDetailsLoader} element={<VanDetails />} />
+        <Route path="host" element={<HostLayout />}>
           <Route
-            path="pricing"
-            loader={hostVanPricingLoader}
-            element={<HostVanPricing />}
+            index
+            loader={dashboardLoader}
+            element={<Dashboard />}
+          />
+          <Route path="income" loader={incomeLoader} element={<Income />} />
+          <Route path="reviews" loader={reviewLoader} element={<Reviews />} />
+          <Route
+            path="vans"
+            loader={hostVansLoader}
+            errorElement={<Error />}
+            element={<HostVans />}
           />
           <Route
-            path="photos"
-            loader={hostVanPhotosLoader}
-            element={<HostVanPhotos />}
-          />
+            path="vans/:id"
+            loader={hostVanLoader}
+            errorElement={<Error />}
+            element={<HostVan />}
+          >
+            <Route
+              index
+              loader={hostVanDetailsLoader}
+              element={<VanDetails />}
+            />
+            <Route
+              path="pricing"
+              loader={hostVanPricingLoader}
+              element={<HostVanPricing />}
+            />
+            <Route
+              path="photos"
+              loader={hostVanPhotosLoader}
+              element={<HostVanPhotos />}
+            />
         </Route>
       </Route>
       <Route path="*" element={<NotFound />} />

@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import { requireAuth } from "../utils";
+import { requireAuth } from "../../utils";
 
 export const loader = async ({ request }) => {
     const { pathname } = new URL(request.url)

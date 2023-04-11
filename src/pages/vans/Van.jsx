@@ -5,8 +5,8 @@ import {
   defer,
   Await,
 } from "react-router-dom";
-import { getVan } from "../api";
-import arrow from "../assets/arrow.svg";
+import { getVan } from "../../api";
+import arrow from "../../assets/arrow.svg";
 import { Suspense } from "react";
 
 const typeColor = {

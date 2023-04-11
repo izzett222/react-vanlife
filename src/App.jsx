@@ -8,23 +8,23 @@ import AppLayout from "./components/AppLayout";
 import Error from "./components/Error";
 import HostLayout from "./components/HostLayout";
 import About from "./pages/About";
-import Dashboard, { loader as dashboardLoader } from "./pages/Dashboard";
+import Dashboard, { loader as dashboardLoader } from "./pages/host/Dashboard";
 import Home from "./pages/Home";
-import HostVan, { loader as hostVanLoader } from "./pages/HostVan";
+import HostVan, { loader as hostVanLoader } from "./pages/host/HostVan";
 import HostVanPhotos, {
   loader as hostVanPhotosLoader,
-} from "./pages/HostVanPhotos";
+} from "./pages/host/HostVanPhotos";
 import HostVanPricing, {
   loader as hostVanPricingLoader,
-} from "./pages/HostVanPricing";
-import HostVans, { loader as hostVansLoader } from "./pages/HostVans";
-import Income, { loader as incomeLoader } from "./pages/Income";
+} from "./pages/host/HostVanPricing";
+import HostVans, { loader as hostVansLoader } from "./pages/host/HostVans";
+import Income, { loader as incomeLoader } from "./pages/host/Income";
 import Login, { action as loginAction, loader as loginLoader } from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import Reviews, { loader as reviewLoader } from "./pages/Reviews";
-import Van, { loader as vanLoader } from "./pages/Van";
-import VanDetails, { loader as hostVanDetailsLoader } from "./pages/VanDetails";
-import Vans, { loader as vansLoader } from "./pages/Vans";
+import Reviews, { loader as reviewLoader } from "./pages/host/Reviews";
+import Van, { loader as vanLoader } from "./pages/vans/Van";
+import VanDetails, { loader as hostVanDetailsLoader } from "./pages/host/VanDetails";
+import Vans, { loader as vansLoader } from "./pages/vans/Vans";
 
 function App() {
   const routes = createRoutesFromElements(

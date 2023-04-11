@@ -1,6 +1,6 @@
 import { Link, useLoaderData, defer, Await } from "react-router-dom";
-import { getHostVans } from "../api";
-import { requireAuth } from "../utils";
+import { getHostVans } from "../../api";
+import { requireAuth } from "../../utils";
 import { Suspense } from "react";
 
 export const loader = async ({ request }) => {

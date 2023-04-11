@@ -5,8 +5,8 @@ import {
   defer,
   Await,
 } from "react-router-dom";
-import { getVans } from "../api";
-import VanCard from "../components/VanCard";
+import { getVans } from "../../api";
+import VanCard from "../../components/VanCard";
 import { Suspense } from "react";
 
 const typeColor = {

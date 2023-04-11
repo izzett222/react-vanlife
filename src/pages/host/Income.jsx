@@ -1,5 +1,5 @@
-import { requireAuth } from "../utils";
-import chart from "../assets/income.svg";
+import { requireAuth } from "../../utils";
+import chart from "../../assets/income.svg";
 
 export const loader = async ({ request }) => {
   const { pathname } = new URL(request.url)

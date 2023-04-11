@@ -6,9 +6,9 @@ import {
   defer,
   Await,
 } from "react-router-dom";
-import arrow from "../assets/arrow.svg";
-import { getHostVan } from "../api";
-import { requireAuth } from "../utils";
+import arrow from "../../assets/arrow.svg";
+import { getHostVan } from "../../api";
+import { requireAuth } from "../../utils";
 import { Suspense } from "react";
 
 const typeColor = {

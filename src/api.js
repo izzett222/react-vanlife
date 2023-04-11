@@ -16,6 +16,7 @@ export async function getVans() {
 export async function getVan(id) {
     const res = await fetch(`/api/vans/${id}`)
     if (!res.ok) {
+         // eslint-disable-next-line no-throw-literal
          throw {
             message: "Van not found",
             statusText: res.statusText,

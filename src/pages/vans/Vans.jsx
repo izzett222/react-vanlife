@@ -1,14 +1,14 @@
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
-import { getVans } from "../api";
-import VanCard from "../components/VanCard";
+import { getVans } from "../../api";
+import VanCard from "../../components/VanCard";
 
 const typeColor = {
   simple: "bg-[#E17654]",
   rugged: "bg-[#115E59]",
   luxury: "bg-[#161616]",
 };
-export function loader() {
-  return getVans();
+export async function loader() {
+  return await getVans();
 }
 
 export default function Vans() {
@@ -21,7 +21,6 @@ export default function Vans() {
     { id: 3, name: "luxury" },
   ];
   const filteredData = routerData.filter((van) => !type || van.type === type);
-
   return (
     <div className="w-full">
       <div className=" px-[26px] mx-auto py-20">

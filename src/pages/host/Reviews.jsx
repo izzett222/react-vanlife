@@ -1,4 +1,11 @@
-import reviews from "../assets/review.svg";
+import { requireAuth } from "../../utils";
+import reviews from "../../assets/review.svg";
+
+export const loader = async ({ request }) => {
+  const { pathname } = new URL(request.url)
+  await requireAuth(pathname)
+  return null
+}
 
 export default function Reviews() {
   const reviewItems = [

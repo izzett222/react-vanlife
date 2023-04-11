@@ -1,6 +1,6 @@
 import { Link, useLocation, useLoaderData } from "react-router-dom";
-import { getVan } from "../api";
-import arrow from "../assets/arrow.svg";
+import { getVan } from "../../api";
+import arrow from "../../assets/arrow.svg";
 
 const typeColor = {
   simple: "bg-[#E17654]",
@@ -8,8 +8,8 @@ const typeColor = {
   luxury: "bg-[#161616]",
 };
 
-export function loader({ params }) {
-  return getVan(params.id);
+export async function loader({ params }) {
+  return await getVan(params.id);
 }
 export default function Van() {
   const routerData = useLoaderData();

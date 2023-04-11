@@ -29,8 +29,8 @@ export default function AppLayout() {
           #VANLIFE
         </Link>
         <div className="flex gap-5">
-          {links.map((element) => {
-            return <HeaderLink key={element.id} {...element} />
+          {links.map((link) => {
+            return <HeaderLink key={link.id} {...link} />
           })}
         </div>
       </header>

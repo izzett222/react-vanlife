@@ -1,4 +1,4 @@
-import reviews from "../assets/review.svg";
+import reviews from "../../assets/review.svg";
 
 export default function Reviews() {
   const reviewItems = [

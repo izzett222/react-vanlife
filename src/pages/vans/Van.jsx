@@ -1,6 +1,6 @@
 import { Link, useLocation, useLoaderData } from "react-router-dom";
-import { getVan } from "../api";
-import arrow from "../assets/arrow.svg";
+import { getVan } from "../../api";
+import arrow from "../../assets/arrow.svg";
 
 const typeColor = {
   simple: "bg-[#E17654]",
@@ -13,6 +13,7 @@ export function loader({ params }) {
 }
 export default function Van() {
   const routerData = useLoaderData();
+  console.log(routerData, '===========')
   const { state } = useLocation();
   const searchParams = new URLSearchParams(state?.query);
   return (

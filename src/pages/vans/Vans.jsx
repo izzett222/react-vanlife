@@ -1,6 +1,6 @@
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
-import { getVans } from "../api";
-import VanCard from "../components/VanCard";
+import { getVans } from "../../api";
+import VanCard from "../../components/VanCard";
 
 const typeColor = {
   simple: "bg-[#E17654]",

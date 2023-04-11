@@ -5,7 +5,7 @@ export default function HostVans() {
     const [data, setData] = useState([]);
   useEffect(() => {
     fetch("/api/host/vans")
-      .then((res) => res.json())
+      .then((response) => response.json())
       .then((data) => setData(data.vans));
   }, []);
   return (

@@ -36,7 +36,6 @@ function App() {
               </Route>
           </Route>
         </Route>
-
       </Routes>
     </BrowserRouter>
   );

@@ -12,8 +12,8 @@ import HostVanPricing from './pages/host/HostVanPricing';
 import HostVans from './pages/host/HostVans';
 import Income from './pages/host/Income';
 import Reviews from './pages/host/Reviews';
-
 import VanDetails from './pages/host/VanDetails';
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -23,18 +23,19 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
-          <Route path='vans/:id' element={<Van />} />
-            <Route path="host" element={<HostLayout />}>
+          <Route path="vans/:id" element={<Van />} />
+          <Route path="host" element={<HostLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="income" element={<Income />} />
               <Route path="reviews" element={<Reviews />} />
               <Route path="vans" element={<HostVans />} />
-              <Route path='vans/:id' element={<HostVan />}>
+              <Route path="vans/:id" element={<HostVan />}>
                 <Route index element={<VanDetails />} />
                 <Route path="pricing" element={<HostVanPricing />} />
                 <Route path="photos" element={<HostVanPhotos />} />
               </Route>
-          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Route>
         </Route>
       </Routes>
     </BrowserRouter>

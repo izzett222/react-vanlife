@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, NavLink, Outlet } from "react-router-dom";
+import { useParams, NavLink, Outlet, Link } from "react-router-dom";
 import arrow from "../../assets/arrow.svg";
 
 const typeColor = {
@@ -11,7 +11,6 @@ const typeColor = {
 export default function HostVan() {
   const { id } = useParams();
   const [data, setData] = useState(null);
-  const navigate = useNavigate();
   useEffect(() => {
     fetch(`/api/host/vans/${id}`)
       .then((res) => res.json())
@@ -22,13 +21,14 @@ export default function HostVan() {
   return (
     data && (
       <div className="w-full px-[26px] pt-5 pb-20">
-        <button
-          onClick={() => navigate(-1)}
+        <Link
+          to=".."
+          relative="path"
           className="flex items-center gap-3"
         >
           <img src={arrow} alt="" />
           <span className="underline">Back to all vans</span>
-        </button>
+        </Link>
         <div>
           <div className="w-full rounded-[10px] mt-10">
             <div className="flex items-center gap-5">

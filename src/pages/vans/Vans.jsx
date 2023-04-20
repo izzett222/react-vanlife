@@ -14,11 +14,8 @@ export default function Vans() {
   const [state, setState] = useState("start");
   const [error, setError] = useState(null);
   const [searchParams] = useSearchParams();
-  const { loading, failed } = {
-    loading: state === "loading" || state === "start",
-    failed: state === "failed",
-    success: state === "success",
-  };
+  const loading = state === "loading" || state === "start";
+  const failed = state === "failed";
   const type = searchParams.get("type");
   const filters = [
     { id: 1, name: "simple" },
@@ -42,7 +39,11 @@ export default function Vans() {
   if (loading) {
     return <h1>loading...</h1>;
   } else if (failed) {
-    return <h1 className="text-3xl font-bold px-[26px] mt-10">server failed with error: {error.message}. Please try again later</h1>;
+    return (
+      <h1 className="text-3xl font-bold px-[26px] mt-10">
+        server failed with error: {error.message}. Please try again later
+      </h1>
+    );
   } else {
     return (
       <div className="w-full">
@@ -52,36 +53,28 @@ export default function Vans() {
           </h1>
           <div className="mt-5 mb-10 flex justify-between items-center">
             <div className="flex gap-5 items-center">
-              {filters.map((filter) => {
-                return (
-                  <Link
-                    to={`?type=${filter.name}`}
-                    key={filter.id}
-                    className={`rounded-[5px] ${
-                      type === filter.name
-                        ? `${typeColor[type]} text-white`
-                        : "bg-[#FFEAD0]"
-                    } px-5 py-1.5`}
-                  >
-                    {filter.name}
-                  </Link>
-                );
-              })}
+              {filters.map((filter) => (
+                <Link
+                  to={`?type=${filter.name}`}
+                  key={filter.id}
+                  className={`rounded-[5px] ${
+                    type === filter.name
+                      ? `${typeColor[type]} text-white`
+                      : "bg-[#FFEAD0]"
+                  } px-5 py-1.5`}
+                >
+                  {filter.name}
+                </Link>
+              ))}
             </div>
             <Link to="." className="underline text-[#4D4D4D] font-medium">
               clear filters
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-            {filteredData.map((van) => {
-              return (
-                <VanCard
-                  {...van}
-                  query={searchParams.toString()}
-                  key={van.id}
-                />
-              );
-            })}
+            {filteredData.map((van) => (
+              <VanCard {...van} query={searchParams.toString()} key={van.id} />
+            ))}
           </div>
         </div>
       </div>

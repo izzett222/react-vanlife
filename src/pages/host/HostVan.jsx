@@ -22,8 +22,7 @@ export default function HostVan() {
     data && (
       <div className="w-full px-[26px] pt-5 pb-20">
         <Link
-          to=".."
-          relative="path"
+          to="/host/vans"
           className="flex items-center gap-3"
         >
           <img src={arrow} alt="" />

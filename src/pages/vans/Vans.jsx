@@ -67,9 +67,9 @@ export default function Vans() {
                 </Link>
               ))}
             </div>
-            <Link to="." className="underline text-[#4D4D4D] font-medium">
+            {type && <Link to="." className="underline text-[#4D4D4D] font-medium">
               clear filters
-            </Link>
+            </Link>}
           </div>
           <div className="grid grid-cols-2 gap-x-8 gap-y-2">
             {filteredData.map((van) => (

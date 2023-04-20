@@ -11,6 +11,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', ...fontFamily.sans],
       },
+      colors: {
+        dark: "#161616"
+      }
     },
   },
   plugins: [],

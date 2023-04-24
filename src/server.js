@@ -22,9 +22,8 @@ createServer({
         })
         
         this.get("/vans/:id", (schema, request) => {
-            return new Response(400, {}, {error: "Van not found"})
-            // const id = request.params.id
-            // return schema.vans.find(id)
+            const id = request.params.id
+            return schema.vans.find(id)
         })
 
         this.get("/host/vans", (schema, request) => {

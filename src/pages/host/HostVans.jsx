@@ -27,7 +27,7 @@ export default function HostVans() {
                 <img
                   src={van.imageUrl}
                   className="h-[64px] w-[64px] rounded-[5px]"
-                  alt=""
+                  alt="van"
                 />
                 <div className="flex justify-between items-center w-full">
                   <div>

@@ -4,7 +4,7 @@ import pic from "../assets/van-about.png";
 export default function About() {
   return (
     <div className="w-full">
-      <img src={pic} alt="" className="w-full" />
+      <img src={pic} alt="about" className="w-full" />
       <div className="py-12 max-w-lg mx-auto text-[#161616] px-[26px]">
         <h2 className="font-bold text-[#161616] text-[32px] leading-[38px] mb-8">Don’t squeeze in a sedan when you could relax in a van.</h2>
         <p className="font-medium leading-[22px]">

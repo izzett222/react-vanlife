@@ -12,7 +12,6 @@ export async function action({ request }) {
   const email = formData.get("email")
   const url = new URL(request.url)
   const params = url.searchParams
-  console.log(params)
   const previousLocation = params.get("previousLocation")
   const password = formData.get("password")
   try {

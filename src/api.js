@@ -41,7 +41,7 @@ export async function getHostVans() {
 }
 
 export async function getHostVan(id) {
-    const res = await fetch(`/api/vans/host/${id}`)
+    const res = await fetch(`/api/host/vans/${id}`)
     if (!res.ok) {
          // eslint-disable-next-line no-throw-literal
          throw {
@@ -59,6 +59,7 @@ export async function loginUser(creds) {
         { method: "post", body: JSON.stringify(creds) }
     )
     const data = await res.json()
+    console.log(data, '=========')
 
     if (!res.ok) {
         // eslint-disable-next-line no-throw-literal

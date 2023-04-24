@@ -21,7 +21,7 @@ export default function AppLayout() {
     },
     {
       to: "login",
-      text: <img src={profile} className="w-[18px] h-[18px]" alt="" />,
+      text: <img src={profile} className="w-[18px] h-[18px]" alt="login" />,
       id: 4,
     },
   ];

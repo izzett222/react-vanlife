@@ -13,7 +13,6 @@ export async function loader({ params }) {
 }
 export default function Van() {
   const routerData = useLoaderData();
-  console.log(routerData, '===========')
   const { state } = useLocation();
   const searchParams = new URLSearchParams(state?.query);
   return (
@@ -23,7 +22,7 @@ export default function Van() {
         relative="path"
         className="flex items-center gap-3"
       >
-        <img src={arrow} alt="" />
+        <img src={arrow} alt="arrow" />
         <span className="underline">
           Back to all {searchParams.get("type") || ""} vans
         </span>
@@ -33,7 +32,7 @@ export default function Van() {
           <img
             src={routerData.imageUrl}
             className="w-full h-full rounded-[5px]"
-            alt=""
+            alt="van"
           />
           <button
             className={`${

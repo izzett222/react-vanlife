@@ -1,14 +1,19 @@
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "firebase/firestore/lite"
-
+const apiKey = process.env.REACT_APP_API_KEY
+const authDomain = process.env.REACT_APP_AUTH_DOMAIN
+const projectId = process.env.REACT_APP_PROJECT_ID
+const storageBucket = process.env.REACT_APP_STORAGE_BUCKET
+const messagingSenderId = process.env.REACT_APP_MESSAGING_SENDER_ID
+const appId = process.env.REACT_APP_APP_ID
 const firebaseConfig = {
-  apiKey: "AIzaSyCJxLRwQeTqgLZ0xXq0rvTSP-FC-lYgslo",
-  authDomain: "vanlife-4f1f0.firebaseapp.com",
-  projectId: "vanlife-4f1f0",
-  storageBucket: "vanlife-4f1f0.appspot.com",
-  messagingSenderId: "1032359331375",
-  appId: "1:1032359331375:web:00c996dd5dae8b686a68da"
+  apiKey,
+  authDomain,
+  projectId,
+  storageBucket,
+  messagingSenderId,
+  appId
 };
 
 // Initialize Firebase

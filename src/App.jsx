@@ -30,6 +30,7 @@ import VanDetails, {
   loader as hostVanDetailsLoader,
 } from "./pages/host/VanDetails";
 import Vans, { loader as vansLoader } from "./pages/vans/Vans";
+import Signup from "./pages/Signup";
 
 function App() {
   const routes = createRoutesFromElements(
@@ -41,6 +42,7 @@ function App() {
         action={loginAction}
         element={<Login />}
       />
+      <Route path="signup" element={<Signup />} />
       <Route path="about" element={<About />} />
       <Route
         path="vans"

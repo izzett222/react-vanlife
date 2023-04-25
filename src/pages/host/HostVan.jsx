@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLoaderData, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData, Link } from "react-router-dom";
 import arrow from "../../assets/arrow.svg";
 import { getHostVan } from "../../api";
 import { requireAuth } from "../../utils";
@@ -18,13 +18,12 @@ export const loader = async ({ params, request }) => {
 
 export default function HostVan() {
   const data = useLoaderData();
-  const navigate = useNavigate();
   return (
     <div className="w-full px-[26px] pt-5 pb-20">
-      <button onClick={() => navigate(-1)} className="flex items-center gap-3">
+      <Link to="/host/vans" className="flex items-center gap-3">
         <img src={arrow} alt="arrow" />
         <span className="underline">Back to all vans</span>
-      </button>
+      </Link>
       <div>
         <div className="w-full rounded-[10px] mt-10">
           <div className="flex items-center gap-5">

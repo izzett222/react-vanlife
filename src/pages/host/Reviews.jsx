@@ -1,4 +1,11 @@
+import { requireAuth } from "../../utils";
 import reviews from "../../assets/review.svg";
+
+export const loader = async ({ request }) => {
+  const { pathname } = new URL(request.url)
+  await requireAuth(pathname)
+  return null
+}
 
 export default function Reviews() {
   const reviewItems = [
@@ -27,7 +34,7 @@ export default function Reviews() {
           Last <span className="font-bold underline">30 days</span>
         </p>
       </div>
-      <img src={reviews} className="mb-10" alt="" />
+      <img src={reviews} className="mb-10" alt="van" />
       <div>
         <h5 className="text-lg text-dark font-bold mb-5">Reviews (2)</h5>
         <div>

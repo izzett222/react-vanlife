@@ -36,7 +36,7 @@ export default function Income() {
       <img
         src={chart}
         className="h-[350px] object-cover w-full max-w-[600px] mx-auto"
-        alt=""
+        alt="chart"
       />
       <div className="mt-14">
         <div className="flex justify-between items-center mb-8">

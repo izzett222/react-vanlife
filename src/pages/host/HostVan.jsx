@@ -1,10 +1,10 @@
 import {
-  useNavigate,
   NavLink,
   Outlet,
   useLoaderData,
   defer,
   Await,
+  Link,
 } from "react-router-dom";
 import arrow from "../../assets/arrow.svg";
 import { getHostVan } from "../../api";
@@ -25,13 +25,12 @@ export const loader = async ({ params, request }) => {
 
 export default function HostVan() {
   const data = useLoaderData();
-  const navigate = useNavigate();
   return (
     <div className="w-full px-[26px] pt-5 pb-20">
-      <button onClick={() => navigate(-1)} className="flex items-center gap-3">
-        <img src={arrow} alt="" />
+      <Link to="/host/vans" className="flex items-center gap-3">
+        <img src={arrow} alt="arrow" />
         <span className="underline">Back to all vans</span>
-      </button>
+      </Link>
       <div>
         <div className="w-full rounded-[10px] mt-10">
           <Suspense fallback={<h2>Loading host van...</h2>}>
@@ -47,9 +46,7 @@ export default function HostVan() {
                       />
                       <div>
                         <button
-                          className={`${
-                            typeColor[van.type.toLowerCase()]
-                          } tex-white text-[#FFEAD0] font-semibold rounded-[5px] mt-2.5 px-3 py-2`}
+                          className={`${typeColor[van.type.toLowerCase()]} text-[#FFEAD0] font-semibold rounded-[5px] mt-2.5 px-3 py-2`}
                         >
                           {van.type}
                         </button>

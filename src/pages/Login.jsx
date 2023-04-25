@@ -12,7 +12,6 @@ export async function action({ request }) {
   const email = formData.get("email")
   const url = new URL(request.url)
   const params = url.searchParams
-  console.log(params)
   const previousLocation = params.get("previousLocation")
   const password = formData.get("password")
   try {
@@ -65,7 +64,7 @@ export default function Login() {
         </Form>
         <p className="font-medium text-2xl text-dark mt-12">
           Don't have an account?{" "}
-          <Link to="signup" className="font-bold text-[#FF8C38]">
+          <Link to="/signup" className="font-bold text-[#FF8C38]">
             Create one now
           </Link>
         </p>

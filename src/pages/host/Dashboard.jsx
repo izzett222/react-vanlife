@@ -63,7 +63,7 @@ export default function Dashboard() {
           {vans.map((van) => {
             return (
               <div key={van.id} className="flex w-full rounded-md px-6 py-[18px] gap-4 bg-white">
-                <img src={van.img} className="h-[64px] w-[64px] rounded-[5px]" alt="" />
+                <img src={van.img} className="h-[64px] w-[64px] rounded-[5px]" alt="van" />
                 <div className="flex justify-between items-center w-full">
                   <div>
                     <h4 className="text-xl text-dark font-semibold">{van.name}</h4>

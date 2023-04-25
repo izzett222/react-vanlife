@@ -29,7 +29,7 @@ export default function Van() {
         relative="path"
         className="flex items-center gap-3"
       >
-        <img src={arrow} alt="" />
+        <img src={arrow} alt="arrow" />
         <span className="underline">
           Back to all {searchParams.get("type") || ""} vans
         </span>
@@ -43,7 +43,7 @@ export default function Van() {
                   <img
                     src={van.imageUrl}
                     className="w-full h-full rounded-[5px]"
-                    alt=""
+                    alt="van"
                   />
                   <button
                     className={`${

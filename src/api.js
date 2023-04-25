@@ -48,6 +48,7 @@ export async function loginUser(creds) {
         { method: "post", body: JSON.stringify(creds) }
     )
     const data = await res.json()
+    console.log(data, '=========')
 
     if (!res.ok) {
         // eslint-disable-next-line no-throw-literal

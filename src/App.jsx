@@ -56,7 +56,6 @@ function App() {
         errorElement={<Error />}
         element={<Van />}
       />
-
       <Route path="host" element={<HostLayout />}>
         <Route index loader={dashboardLoader} element={<Dashboard />} />
         <Route path="income" loader={incomeLoader} element={<Income />} />

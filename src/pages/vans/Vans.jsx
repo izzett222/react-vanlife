@@ -1,14 +1,21 @@
-import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useSearchParams,
+  defer,
+  Await,
+} from "react-router-dom";
 import { getVans } from "../../api";
 import VanCard from "../../components/VanCard";
+import { Suspense } from "react";
 
 const typeColor = {
   simple: "bg-[#E17654]",
   rugged: "bg-[#115E59]",
   luxury: "bg-[#161616]",
 };
-export async function loader() {
-  return await getVans();
+export function loader() {
+  return defer({ vans: getVans() });
 }
 
 export default function Vans() {
@@ -20,7 +27,6 @@ export default function Vans() {
     { id: 2, name: "rugged" },
     { id: 3, name: "luxury" },
   ];
-  const filteredData = routerData.filter((van) => !type || van.type === type);
   return (
     <div className="w-full">
       <div className=" px-[26px] mx-auto py-20">
@@ -48,9 +54,24 @@ export default function Vans() {
           </Link>}
         </div>
         <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-          {filteredData.map((van) => (
-            <VanCard {...van} query={searchParams.toString()} key={van.id} />
-          ))}
+          <Suspense fallback={<h1>loading...</h1>}>
+            <Await resolve={routerData.vans}>
+              {(vans) => {
+                const filteredData = vans.filter(
+                  (van) => !type || van.type === type
+                );
+                return filteredData.map((van) => {
+                  return (
+                    <VanCard
+                      {...van}
+                      query={searchParams.toString()}
+                      key={van.id}
+                    />
+                  );
+                });
+              }}
+            </Await>
+          </Suspense>
         </div>
       </div>
     </div>

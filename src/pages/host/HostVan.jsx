@@ -42,7 +42,7 @@ export default function HostVan() {
                       <img
                         src={van.imageUrl}
                         className="w-40 rounded-[5px]"
-                        alt=""
+                        alt="van"
                       />
                       <div>
                         <button
